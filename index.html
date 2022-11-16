@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What's the Weather?!</title>
+    <link rel="./style.css" />
   </head>
   <body>
     <header><h1>What's the weather...</h1></header>
     <main>
+      <section id="search-bar">
+        <form id="search-form">
+          <label for="search-input">Search for city</label>
+          <input type="text" name="search-input" id="search-input" />
+          <button type="submit">Search for city</button>
+        </form>
+      </section>
       <section id="day-container">
         <article id="Sunday">
           <p class="date"></p>
@@ -61,5 +69,6 @@
         </article>
       </section>
     </main>
+    <script src="./script.js"></script>
   </body>
 </html>
