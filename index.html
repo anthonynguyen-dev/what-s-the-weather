@@ -5,67 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What's the Weather?!</title>
-    <link rel="./style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header><h1>What's the weather...</h1></header>
+    <header><h1></h1></header>
     <main>
-      <section id="search-bar">
+      <section id="search-bar" class="search-bar">
         <form id="search-form">
           <label for="search-input">Search for city</label>
           <input type="text" name="search-input" id="search-input" />
-          <button type="submit">Search for city</button>
+          <button type="submit">Enter</button>
         </form>
+        <div id="recent-searches"></div>
       </section>
       <section id="day-container">
-        <article id="Sunday">
+        <article id="Monday" class="week-day">
           <p class="date"></p>
           <p class="weather"></p>
           <p class="temp"></p>
           <p class="wind-spd"></p>
           <p class="humidity"></p>
         </article>
-        <article id="Monday">
+        <article id="Tuesday" class="week-day">
           <p class="date"></p>
           <p class="weather"></p>
           <p class="temp"></p>
           <p class="wind-spd"></p>
           <p class="humidity"></p>
         </article>
-        <article id="Tuesday">
+        <article id="Wednesday" class="week-day">
           <p class="date"></p>
           <p class="weather"></p>
           <p class="temp"></p>
           <p class="wind-spd"></p>
           <p class="humidity"></p>
         </article>
-        <article id="Wednesday">
+        <article id="Thursday" class="week-day">
           <p class="date"></p>
           <p class="weather"></p>
           <p class="temp"></p>
           <p class="wind-spd"></p>
           <p class="humidity"></p>
         </article>
-        <article id="Thursday">
+        <article id="Friday" class="week-day">
           <p class="date"></p>
           <p class="weather"></p>
           <p class="temp"></p>
           <p class="wind-spd"></p>
           <p class="humidity"></p>
-        </article>
-        <article id="Friday">
-          <p class="date"></p>
-          <p class="weather"></p>
-          <p class="temp"></p>
-          <p class="wind-spd"></p>
-          <p class="humidity"></p>
-        </article>
-        <article id="Saturday">
-          <p class="date"></p>
-          <p class="weather"></p>
-          <p class="temp"></p>
-          <p class="wind-spd"></p>
-          <p class="humidity"><article</p>
         </article>
       </section>
     </main>
