@@ -9,19 +9,16 @@ var nameCity = document.querySelector("#name-city");
 var weatherJSON;
 var date = document.querySelectorAll(".date");
 const weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+var recentSearches = document.querySelector("#recent-searches");
 
 citySearch.addEventListener("submit", function (event) {
   event.preventDefault();
   var cityName = searchInput.value.trim();
   getLocation(cityName);
   console.log(weatherJSON);
-
-  //console.log(weatherJSON.main.temp);
-  //parseJsonData(weatherJSON);
 });
 
 function getCurrentWeather(location) {
-  //var weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
   console.log(location);
   var weatherURL = `https://api.openweathermap.org/data/2.5/forecast?units=imperial&lat=${location.lat}&lon=${location.lon}&appid=${apiKey}`;
   fetch(weatherURL)
@@ -36,7 +33,16 @@ function getCurrentWeather(location) {
       visualDisplay(data.list);
       weatherJSON = JSON.stringify(data);
       console.log(weatherJSON);
+      //data.name;
     });
+}
+
+function populateRecentSearches() {
+  localStorage.setItem();
+  localStorage.setItem();
+  localStorage.setItem();
+  localStorage.setItem();
+  localStorage.setItem();
 }
 
 function getLocation(city) {
