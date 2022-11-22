@@ -9,13 +9,15 @@ var nameCity = document.querySelector("#name-city");
 var weatherJSON;
 var date = document.querySelectorAll(".date");
 const weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-var recentSearches = document.querySelector("#recent-searches");
+var recentSearches = [];
+
+var recentSearchesList = document.getElementsByClassName("recent-searches");
 
 citySearch.addEventListener("submit", function (event) {
   event.preventDefault();
   var cityName = searchInput.value.trim();
   getLocation(cityName);
-  console.log(weatherJSON);
+  // console.log(weatherJSON);
 });
 
 function getCurrentWeather(location) {
@@ -28,21 +30,18 @@ function getCurrentWeather(location) {
       }
     })
     .then(function (data) {
-      console.log("data returned is...");
-      console.log(data);
+      // console.log("data returned is...");
+      // console.log(data);
       visualDisplay(data.list);
       weatherJSON = JSON.stringify(data);
-      console.log(weatherJSON);
-      //data.name;
+      recentSearches.push(data.city.name);
+      for (let i = 0; i < recentSearches.length; i++) {
+        let element = recentSearchesList[i];
+        element.innerHTML = recentSearches[i];
+        console.log(recentSearches[i]);
+        console.log(recentSearchesList);
+      }
     });
-}
-
-function populateRecentSearches() {
-  localStorage.setItem();
-  localStorage.setItem();
-  localStorage.setItem();
-  localStorage.setItem();
-  localStorage.setItem();
 }
 
 function getLocation(city) {
@@ -54,6 +53,7 @@ function getLocation(city) {
     })
     .then(function (data) {
       console.log(data);
+
       getCurrentWeather(data[0]);
     });
 }
@@ -74,16 +74,17 @@ function visualDisplay(forecastDays) {
   for (var i = 0; i < 40; i += 8) {
     date.textContent = weatherMain[0].textContent =
       forecastDays[0].weather.main;
+
     weatherMain[1].textContent = forecastDays[8].weather.main;
     weatherMain[2].textContent = forecastDays[16].weather.main;
     weatherMain[3].textContent = forecastDays[24].weather.main;
     weatherMain[4].textContent = forecastDays[32].weather.main;
 
-    temp[0].textContent = forecastDays[0].main.temp + " C";
-    temp[1].textContent = forecastDays[8].main.temp + " C";
-    temp[2].textContent = forecastDays[16].main.temp + " C";
-    temp[3].textContent = forecastDays[24].main.temp + " C";
-    temp[4].textContent = forecastDays[32].main.temp + " C";
+    temp[0].textContent = forecastDays[0].main.temp + " F";
+    temp[1].textContent = forecastDays[8].main.temp + " F";
+    temp[2].textContent = forecastDays[16].main.temp + " F";
+    temp[3].textContent = forecastDays[24].main.temp + " F";
+    temp[4].textContent = forecastDays[32].main.temp + " F";
 
     windSpd[0].textContent = forecastDays[0].wind.speed + " mph";
     windSpd[1].textContent = forecastDays[8].wind.speed + " mph";
